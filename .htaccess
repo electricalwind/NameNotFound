@@ -2,5 +2,5 @@ Options -Indexes +FollowSymlinks
 
 RewriteEngine on
 
-RewriteCond $1 !^(index\.php|static/|robots\.txt)
+RewriteCond $1 !^(index\.php|static/|phpmyadmin/|robots\.txt)
 RewriteRule ^(.*)$ index.php/$1 [L]
