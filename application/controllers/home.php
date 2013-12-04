@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 	{
 		/* Set layout properties */
 		$this->layout->setTitle('Bienvenue');
-		$this->layout->addCss('home');
+		$this->layout->addLess('home');
 
 		/* Load page content */
 		$this->layout->loadPageContent('home');

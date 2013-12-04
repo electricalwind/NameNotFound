@@ -11,9 +11,11 @@
 
 	<link rel="shortcut icon" href="<?= img_url('favicon.png'); ?>" />
 
-<?php foreach ($layoutCss as $css) { ?>
-	<link rel="stylesheet" href="<?= css_url($css); ?>">
+<?php foreach ($layoutLess as $less) { ?>
+	<link rel="stylesheet/less" type="text/css" href="<?= less_url($less); ?>" />
 <?php } ?>
+
+	<script type="text/javascript" src="<?= lib_url("less/less-1.5.1.min.js"); ?>"></script>
 
 </head>
 <body>

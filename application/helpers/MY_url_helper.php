@@ -13,6 +13,14 @@ if ( ! function_exists('css_url'))
 	}
 }
 
+if ( ! function_exists('less_url'))
+{
+	function less_url($name)
+	{
+		return base_url() . 'static/css/' . $name . '.less';
+	}
+}
+
 if ( ! function_exists('js_url'))
 {
 	function js_url($name)
@@ -26,6 +34,14 @@ if ( ! function_exists('img_url'))
 	function img_url($name)
 	{
 		return base_url() . 'static/images/' . $name;
+	}
+}
+
+if ( ! function_exists('lib_url'))
+{
+	function lib_url($path)
+	{
+		return base_url() . 'static/lib/' . $path;
 	}
 }
 

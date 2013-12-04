@@ -9,7 +9,7 @@ class Layout
     private $CI;
     private $title;
     private $selectedTab;
-    private $css;
+    private $less;
 	private $js;
     
     public function __construct()
@@ -18,7 +18,7 @@ class Layout
         
         $this->title = null;
         $this->selectedTab = null;
-        $this->css = array('main');
+        $this->less = array('main');
         $this->js = array();
     }
     
@@ -33,7 +33,7 @@ class Layout
         /* Add data to array */
         $data['layoutTitle'] = $this->title;
         $data['layoutSelectedTab'] = $this->selectedTab;
-        $data['layoutCss'] = $this->css;
+        $data['layoutLess'] = $this->less;
         $data['layoutJs'] = $this->js;
 
         /* Load the template */
@@ -63,19 +63,19 @@ class Layout
     }
     
     /**
-     * Add a CSS list to the page
+     * Add a LESS list to the page
      * Parameters :
-     *    $css (array/string) : The new CSS array to add or a single CSS file to add
+     *    $less (array/string) : The new LESS array to add or a single LESS file to add
      */
-    public function addCss ($css = array())
+    public function addLess ($less = array())
     {
-        if (is_array($css))
+        if (is_array($less))
         {
-            foreach ($css as $i)
-                $this->css[] = $i;
+            foreach ($less as $i)
+                $this->less[] = $i;
         }
-        else if (is_string($css))
-            $this->css[] = $css;
+        else if (is_string($less))
+            $this->less[] = $less;
     }
 
 	/**
