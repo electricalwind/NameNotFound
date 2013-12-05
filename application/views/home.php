@@ -1,4 +1,8 @@
-<h1>Bienvenue sur le site de la nuit de l'info 2013</h1>
-<p>NameNotFoundException</p>
-<p>Test Matmat</p>
-<p>Test Cyril</p>
+<div class="module module-question col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 well">
+	<h1>Posez votre question</h1>
+	<div class="module-body">
+		<form class="form-horizontal" role="form">
+			<textarea class="form-control" rows="3" placeholder="Tapez votre question"></textarea>
+		</form>
+	</div>
+</div>

@@ -4,6 +4,64 @@
  */
 
 
-#page-container {
-	background: #d3d3d3;
+body {
+}
+
+
+@navbar_bg:       #5e0000;
+@navbar_bg_focus: darken(@navbar_bg, 6%);
+
+#navbar {
+	background: @navbar_bg;
+	border-color: @navbar_bg;
+
+	.navbar-brand {
+		color: white;
+
+		&:hover {
+			color: #d3d3d3;
+		}
+	}
+
+	.navbar-nav > li {
+		> a {
+			color: #d3d3d3;
+
+			&:hover {
+				color: white;
+			}
+		}
+
+		&.active > a {
+			color: white;
+			background-color: @navbar_bg_focus;
+		}
+	}
+
+	.navbar-toggle:hover,
+	.navbar-toggle:focus {
+		background-color: @navbar_bg_focus;
+	}
+}
+
+
+.module {
+	padding: 0;
+
+	> h1 {
+		margin: 10px 0 10px 0;
+		line-height: 40px;
+		text-align: center;
+		color: grey;
+	}
+
+	.module-body {
+		margin: 0 15px 15px 15px;
+	}
+
+	&.module-question .module-body {
+		textarea {
+			max-width: 100%;
+		}
+	}
 }
