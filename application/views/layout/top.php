@@ -12,6 +12,8 @@
 
 	<link rel="shortcut icon" href="<?= img_url('favicon.png'); ?>" />
 	<link rel="stylesheet" href="<?= lib_url('bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?= lib_url('bootstrap/css/bootstrap-multiselect.css'); ?>">
+
 <?php foreach ($layoutLess as $less) { ?>
 	<link rel="stylesheet/less" type="text/css" href="<?= less_url($less); ?>" />
 <?php } ?>

@@ -8,9 +8,13 @@ class Question extends CI_Controller {
      */
     public function index ()
     {
+
         /* Load Models * /
         $this->load->model('Questions_Model', 'Questions');
         /* */
+
+        //TODO
+        $this->layout->addJs('notifications');
 
         /* CURL */
         $this->load->library('curl');
@@ -33,6 +37,8 @@ class Question extends CI_Controller {
 
         }
 
+        /* Load page content */
+        $this->layout->loadPageContent('notification');
 
 
     }
