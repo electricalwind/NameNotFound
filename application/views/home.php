@@ -2,7 +2,7 @@
 	<h1>Posez votre question</h1>
 	<div class="module-body">
 		<form class="form-horizontal" role="form" method="post" action="<?= site_url('question/send'); ?>">
-			<textarea class="form-control" rows="3" placeholder="Tapez votre question"></textarea>
+			<textarea class="form-control" rows="3" placeholder="Tapez votre question..."></textarea>
 			<label class="control-label">Demander l'avis de :</label>
 			<div class="question-whos">
 				<div class="question-who question-closes">
@@ -24,7 +24,9 @@
 					</div>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary submit">Envoyer</button>
+			<div class="form-bottom">
+				<button type="submit" class="btn btn-primary submit">Envoyer</button>
+			</div>
 		</form>
 	</div>
 </div>
