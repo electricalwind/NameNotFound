@@ -25,7 +25,8 @@
 				</div>
 			</div>
 			<div class="form-bottom">
-				<button type="submit" class="btn btn-primary submit">Envoyer</button>
+                <?php if (!$userId) $btn = "disabled"; else $btn = ""; ?>
+                <button type="submit" class="btn btn-primary submit <?= $btn ?>">Envoyer</button>
 			</div>
 		</form>
 	</div>
