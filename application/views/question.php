@@ -2,7 +2,7 @@
 	<h1>Posez votre question</h1>
 	<div class="module-body">
 		<form class="form-horizontal" role="form" method="post" action="<?= site_url('question/send'); ?>">
-			<textarea name="question" class="form-control" rows="3" placeholder="Tapez votre question..."></textarea>
+			<textarea name="question" class="form-control" rows="3" placeholder="Tapez votre question..." required></textarea>
 			<label class="control-label">Demander l'avis de :</label>
 			<div class="question-whos">
 				<div class="question-who question-closes">
