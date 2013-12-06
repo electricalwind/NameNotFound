@@ -66,12 +66,6 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 TRUNCATE TABLE `question`;
---
--- Contenu de la table `question`
---
-
-INSERT INTO `question` (`id`, `idUser`, `content`, `status`) VALUES
-(19, 3, 'Plouf', '');
 
 -- --------------------------------------------------------
 
