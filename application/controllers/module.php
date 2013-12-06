@@ -21,7 +21,7 @@ class Module extends CI_Controller {
 	public function notifications ()
 	{
 		/* Set layout properties */
-		$this->layout->setTitle('Vos notifications');
+		$this->layout->setTitle('Notifications');
 		$this->layout->setSelectedTab('notifications');
 		$this->layout->addJs('notifications');
 
