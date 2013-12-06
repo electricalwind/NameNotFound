@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 06 Décembre 2013 à 03:47
+-- Généré le: Ven 06 Décembre 2013 à 04:44
 -- Version du serveur: 5.5.33
 -- Version de PHP: 5.5.3
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `expertise` (
   `idUser` int(11) NOT NULL,
   `idTheme` int(11) NOT NULL,
   `score` int(11) NOT NULL,
-  KEY `idUser` (`idUser`),
+  UNIQUE KEY `idUser` (`idUser`,`idTheme`),
   KEY `idTheme` (`idTheme`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,10 +39,7 @@ TRUNCATE TABLE `expertise`;
 --
 
 INSERT INTO `expertise` (`idUser`, `idTheme`, `score`) VALUES
-(2, 5, 2344),
-(3, 5, 1000),
-(2, 6, 101),
-(2, 6, 101);
+(2, 5, 117);
 
 -- --------------------------------------------------------
 
@@ -59,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `id` (`id`),
   KEY `idUser` (`idUser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Vider la table avant d'insérer `question`
@@ -71,7 +68,8 @@ TRUNCATE TABLE `question`;
 --
 
 INSERT INTO `question` (`id`, `idUser`, `content`, `status`) VALUES
-(17, 2, '0', '0');
+(17, 2, '0', '0'),
+(19, 3, 'Plouf', '');
 
 -- --------------------------------------------------------
 
@@ -92,6 +90,37 @@ CREATE TABLE IF NOT EXISTS `question_theme` (
 --
 
 TRUNCATE TABLE `question_theme`;
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reponse`
+--
+
+DROP TABLE IF EXISTS `reponse`;
+CREATE TABLE IF NOT EXISTS `reponse` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idQuestion` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `content` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idQuestion` (`idQuestion`),
+  KEY `idUser` (`idUser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Vider la table avant d'insérer `reponse`
+--
+
+TRUNCATE TABLE `reponse`;
+--
+-- Contenu de la table `reponse`
+--
+
+INSERT INTO `reponse` (`id`, `idQuestion`, `idUser`, `content`) VALUES
+(1, 17, 2, 'Le cheval'),
+(2, 17, 3, 'Abc'),
+(3, 19, 2, 'ABC');
+
 -- --------------------------------------------------------
 
 --
@@ -176,8 +205,8 @@ TRUNCATE TABLE `user_expert`;
 -- Contraintes pour la table `expertise`
 --
 ALTER TABLE `expertise`
-ADD CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-ADD CONSTRAINT `expertise_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ADD CONSTRAINT `expertise_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ADD CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `question`
@@ -193,11 +222,19 @@ ADD CONSTRAINT `question_theme_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme
 ADD CONSTRAINT `question_theme_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`) ON DELETE CASCADE;
 
 --
+-- Contraintes pour la table `reponse`
+--
+ALTER TABLE `reponse`
+ADD CONSTRAINT `reponse_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
 -- Contraintes pour la table `user_expert`
 --
 ALTER TABLE `user_expert`
 ADD CONSTRAINT `user_expert_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `user_expert_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
 
 -- End of file: enable foreign keys
 SET FOREIGN_KEY_CHECKS = 1;
