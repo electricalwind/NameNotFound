@@ -6,7 +6,7 @@ class Question extends CI_Controller {
     /**
      * Question page
      */
-    public function index ()
+    public function send ()
     {
 
         /* Load Models * /
