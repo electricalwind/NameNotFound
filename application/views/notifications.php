@@ -1,15 +1,15 @@
 <div class="module module-notifications col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 well">
-    <h1>Vos notifications</h1>
+    <h1>Notifications</h1>
     <div class="module-body">
         <form class="form-inline" role="form">
 	        <label class="">Afficher : </label>
             <div class="form-group">
-                <select class="form-control multiselect" multiple="multiple">
+                <select class="form-control multiselect theme-filter" multiple="multiple">
                     <option value="interests">Mes intérêts</option>
                     <option value="experts">Mes expertises</option>
                     <optgroup label="Thèmes">
                         <?php foreach ($themes as $t) { ?>
-                        <option value="<?= $t; ?>"><?= $t; ?></option>
+                        <option value="theme-<?= $t->id; ?>"><?= $t->name; ?></option>
                         <?php } ?>
                     </optgroup>
                 </select>
@@ -28,7 +28,7 @@
 				<div class="themes">
 					Thèmes :
 					<?php foreach ($n['themes'] as $t) { ?>
-					<span class="label label-primary"><?= $t["name"]; ?></span>
+					<span class="label label-primary theme-<?= $t["id"]; ?>"><?= $t["name"]; ?></span>
 					<?php } ?>
 					<?php if (!$n['themes']) { ?>
 						Aucun

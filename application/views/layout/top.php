@@ -36,7 +36,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'question') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/question'); ?>">Posez votre question</a></li>
-					<li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'notifications') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/notifications'); ?>">Vos notifications</a></li>
+					<li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'notifications') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/notifications'); ?>">Notifications</a></li>
 				</ul>
 				<!--<ul class="nav navbar-nav navbar-right">
 					<li><button class="btn btn-link navbar-btn"><span class="glyphicon glyphicon-cog"></span></button></li>
