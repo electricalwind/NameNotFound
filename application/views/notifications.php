@@ -20,9 +20,9 @@
 			<?php foreach ($notifs as $n) { ?>
 			<div class="notification">
 				<div class="buttons">
-					<a href="#" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span> Liste des réponses</a>
+					<a href="<?= site_url('module/responses/'.$n['id']); ?>" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span></a>
                     <?php if ($userId) { ?>
-                        <a href="#" class="btn btn-link respond" title="Répondre"><span class="glyphicon glyphicon-share-alt"></span> Répondre</a>
+                        <a href="#" class="btn btn-link respond" title="Répondre"><span class="glyphicon glyphicon-share-alt"></span> </a>
                     <?php } ?>
                 </div>
 				<div class="title"><?= $n["user"]->name; ?> a posé une question :</div>

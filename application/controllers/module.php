@@ -102,46 +102,47 @@ class Module extends CI_Controller {
         $this->layout->loadPageContent('myquestions', $data);
     }
 
-    public function responses ($idQuestion)
+    public function responses ($idQuestion = '')
     {
-        if ($idQuestion == 0) redirect('module/notifications');
+        if (!isset($idQuestion) || $idQuestion == '') redirect('module/notifications');
 
         /* Set layout properties */
         $this->layout->setTitle('Réponses');
-        $this->layout->setSelectedTab();
         $this->layout->addJs('responses');
 
         /* Load Models */
         $this->load->model('Reponses_Model', 'reponses');
         $this->load->model('Users_Model', 'users');
+        $this->load->model('Questions_Model', 'questions');
 
-        $result = $this->reponses->getAllReponsesForAQuestion();
+        $questions = $this->questions->listQuestion();
+        $question = null;
+        foreach ($questions->result() as $row)
+        {
+            if ($idQuestion == $row->id) {
+                $question = $row;
+            }
+        }
+        if ($question == null) redirect('module/notifications');
+
+        $result = $this->reponses->getAllReponsesForAQuestion($idQuestion);
         $array = array();
         $i = 0;
         foreach ($result->result() as $row)
         {
-            if ($row->idUser == getUserId()) {
-                $array[$i]['id'] = $row->id;
-                $array[$i]['content'] = $row->content;
-                $array[$i]['themes'] = $this->questions->getQuestionThemes($row->id);
-                $array[$i]['user'] = $this->users->getUserInfo($row->idUser);
-                $i++;
-            }
+            $array[$i]['id'] = $row->id;
+            $array[$i]['content'] = $row->content;
+            $array[$i]['user'] = $this->users->getUserInfo($row->idUser);
+            $i++;
         }
 
-        $themes = array();
-        $result = $this->questions->getThemes();
-        foreach ($result->result() as $row)
-        {
-            $themes[] = $row;
-        }
 
         $data = array(
             'notifs' => $array,
-            'themes' => $themes
+            'question' => $question
         );
 
         /* Load page content */
-        $this->layout->loadPageContent('myquestions', $data);
+        $this->layout->loadPageContent('responses', $data);
     }
 }
