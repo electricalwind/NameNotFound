@@ -65,7 +65,7 @@
                     return this.nonSelectedText + ' <b class="caret"></b>';
                 }
                 else {
-                    if (options.length > 3) {
+                    if (options.length > 1) {
                         return options.length + ' ' + this.nSelectedText + ' <b class="caret"></b>';
                     }
                     else {
@@ -100,16 +100,16 @@
             // If maximum height is exceeded a scrollbar will be displayed.
             maxHeight: false,
             includeSelectAllOption: false,
-            selectAllText: ' Select all',
+            selectAllText: ' Tout sélectionner',
             selectAllValue: 'multiselect-all',
             enableFiltering: false,
             enableCaseInsensitiveFiltering: false,
-            filterPlaceholder: 'Search',
+            filterPlaceholder: 'Rechercher',
             // possible options: 'text', 'value', 'both'
             filterBehavior: 'text',
             preventInputChangeEvent: false,
-            nonSelectedText: 'None selected',
-            nSelectedText: 'selected'
+            nonSelectedText: 'Aucun',
+            nSelectedText: 'sélectionnés'
         },
         
         // Templates.
