@@ -25,13 +25,16 @@ class Module extends CI_Controller {
 		$this->layout->setSelectedTab('notifications');
 		$this->layout->addJs('notifications');
 
-        $result = $this->db->listQuestion();
+        /* Load Models */
+        $this->load->model('Questions_Model', 'questions');
+
+        $result = $this->questions->listQuestion();
         $array = array();
         $i = 0;
         foreach ($result->result() as $row)
         {
             $array[$i]['content'] = $row->content;
-            $array[$i]['themes'] = $this->db->getQuestionThemes($row->id);
+            $array[$i]['themes'] = $this->questions->getQuestionThemes($row->id);
         }
 
         $data = array(
