@@ -36,11 +36,11 @@
 					<?php } ?>
 				</div>
 				<div class="response">
-					<form method="post" action="">
+					<form method="post" action="<?= site_url('question/respond/'.$n['id']); ?>">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Réponse...">
+							<input type="text" name="response" class="form-control" placeholder="Réponse...">
 							<span class="input-group-btn">
-								<button class="btn btn-success" type="button">Envoyer</button>
+								<button class="btn btn-success" type="submit">Envoyer</button>
 							</span>
 						</div>
 					</form>

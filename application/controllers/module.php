@@ -34,6 +34,7 @@ class Module extends CI_Controller {
         $i = 0;
         foreach ($result->result() as $row)
         {
+	        $array[$i]['id'] = $row->id;
             $array[$i]['content'] = $row->content;
             $array[$i]['themes'] = $this->questions->getQuestionThemes($row->id);
             $array[$i]['user'] = $this->users->getUserInfo($row->idUser);
