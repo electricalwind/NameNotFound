@@ -69,11 +69,6 @@ TRUNCATE TABLE `question`;
 -- Contenu de la table `question`
 --
 
-INSERT INTO `question` (`id`, `idUser`, `content`, `status`) VALUES
-(17, 2, '0', '0'),
-(19, 3, 'Plouf', ''),
-(20, 1, 'AA', 'UNSOLVED');
-
 -- --------------------------------------------------------
 
 --
@@ -138,10 +133,6 @@ TRUNCATE TABLE `reponse`;
 -- Contenu de la table `reponse`
 --
 
-INSERT INTO `reponse` (`id`, `idQuestion`, `idUser`, `content`) VALUES
-(1, 17, 2, 'Le cheval'),
-(2, 17, 3, 'Abc'),
-(3, 19, 2, 'ABC');
 
 -- --------------------------------------------------------
 
@@ -166,11 +157,6 @@ TRUNCATE TABLE `theme`;
 -- Contenu de la table `theme`
 --
 
-INSERT INTO `theme` (`id`, `name`) VALUES
-(5, 'Aquarium'),
-(6, 'Poisson'),
-(7, 'cheval'),
-(8, 'bonjour');
 
 -- --------------------------------------------------------
 
@@ -199,8 +185,9 @@ TRUNCATE TABLE `user`;
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`) VALUES
-(2, 'Cyril', '', '', ''),
-(3, 'Matthieu', 'electricalWind', 'abcde', 'aaa');
+(1, 'admin', 'admin', 'admin', 'admin'),
+(2, 'alice', 'alice', 'alice', 'alice');
+(3, 'alice', 'alice', 'alice', 'alice');
 
 -- --------------------------------------------------------
 

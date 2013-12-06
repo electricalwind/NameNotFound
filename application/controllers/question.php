@@ -8,6 +8,7 @@ class Question extends CI_Controller {
      */
     public function send ()
     {
+        if (getUserId() == 0) redirect('module/notifications');
 
         /* Load Models */
         $this->load->model('Questions_Model', 'questions');
@@ -68,7 +69,7 @@ class Question extends CI_Controller {
             }
         }
 
-        $this->questions->addQuestion(1, $question, $arrayIdThemes);
+        $this->questions->addQuestion(getUserId(), $question, $arrayIdThemes);
 
         redirect('module/notifications');
     }
@@ -78,6 +79,7 @@ class Question extends CI_Controller {
      */
     public function respond ($idQuestion)
     {
+        if (getUserId() == 0) redirect('module/notifications');
 
         if (!isset($idQuestion))
             redirect('module/notifications');
@@ -89,7 +91,7 @@ class Question extends CI_Controller {
         $response = $this->input->post('response');
 
 
-        $this->reponses->addReponse(1, $idQuestion, $response);
+        $this->reponses->addReponse(getUserId(), $idQuestion, $response);
 
         redirect('module/notifications');
     }
