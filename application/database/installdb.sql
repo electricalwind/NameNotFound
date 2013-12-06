@@ -1,3 +1,6 @@
+SET FOREIGN_KEY_CHECKS = 0;
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.0.9
 -- http://www.phpmyadmin.net
@@ -175,8 +178,8 @@ TRUNCATE TABLE `user`;
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`) VALUES
-(2, 'Cyril', '', '', ''),
-(3, 'Matthieu', 'electricalWind', 'abcde', 'aaa');
+(1, 'Cyril', '', '', ''),
+(2, 'Matthieu', 'electricalWind', 'abcde', 'aaa');
 
 -- --------------------------------------------------------
 

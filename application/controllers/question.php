@@ -12,9 +12,6 @@ class Question extends CI_Controller {
         /* Load Models */
         $this->load->model('Questions_Model', 'questions');
 
-
-        $this->layout->addJs('notifications');
-
         $question = $this->input->post('question');
 
         /* CURL */
@@ -72,6 +69,27 @@ class Question extends CI_Controller {
         }
 
         $this->questions->addQuestion(1, $question, $arrayIdThemes);
+
+        redirect('module/notifications');
+    }
+
+    /**
+     * Question page
+     */
+    public function respond ($idQuestion)
+    {
+
+        if (!isset($idQuestion))
+            redirect('module/notifications');
+
+
+        /* Load Models */
+        $this->load->model('Reponses_Model', 'reponses');
+
+        $response = $this->input->post('response');
+
+
+        $this->reponses->addReponse(1, $idQuestion, $response);
 
         redirect('module/notifications');
     }
