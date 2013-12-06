@@ -71,7 +71,6 @@ TRUNCATE TABLE `question`;
 --
 
 INSERT INTO `question` (`id`, `idUser`, `content`, `status`) VALUES
-(17, 2, '0', '0'),
 (19, 3, 'Plouf', '');
 
 -- --------------------------------------------------------
