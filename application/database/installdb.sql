@@ -6,7 +6,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 06 Décembre 2013 à 04:56
+-- Généré le: Ven 06 Décembre 2013 à 05:29
 -- Version du serveur: 5.5.33
 -- Version de PHP: 5.5.3
 
@@ -56,10 +56,9 @@ CREATE TABLE IF NOT EXISTS `question` (
   `idUser` int(11) NOT NULL,
   `content` text NOT NULL,
   `status` text NOT NULL,
-  PRIMARY KEY (`idUser`),
-  UNIQUE KEY `id` (`id`),
-  KEY `idUser` (`idUser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Vider la table avant d'insérer `question`
@@ -72,7 +71,8 @@ TRUNCATE TABLE `question`;
 
 INSERT INTO `question` (`id`, `idUser`, `content`, `status`) VALUES
 (17, 2, '0', '0'),
-(19, 3, 'Plouf', '');
+(19, 3, 'Plouf', ''),
+(20, 1, 'AA', 'UNSOLVED');
 
 -- --------------------------------------------------------
 
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `theme` (
   `name` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Vider la table avant d'insérer `theme`
@@ -168,7 +168,9 @@ TRUNCATE TABLE `theme`;
 
 INSERT INTO `theme` (`id`, `name`) VALUES
 (5, 'Aquarium'),
-(6, 'Poisson');
+(6, 'Poisson'),
+(7, 'cheval'),
+(8, 'bonjour');
 
 -- --------------------------------------------------------
 
@@ -197,8 +199,8 @@ TRUNCATE TABLE `user`;
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`) VALUES
-(1, 'Cyril', '', '', ''),
-(2, 'Matthieu', 'electricalWind', 'abcde', 'aaa');
+(2, 'Cyril', '', '', ''),
+(3, 'Matthieu', 'electricalWind', 'abcde', 'aaa');
 
 -- --------------------------------------------------------
 
@@ -229,12 +231,6 @@ TRUNCATE TABLE `user_expert`;
 ALTER TABLE `expertise`
 ADD CONSTRAINT `expertise_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `question`
---
-ALTER TABLE `question`
-ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `question_theme`
