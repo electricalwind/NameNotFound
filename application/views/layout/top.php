@@ -37,7 +37,9 @@
 				<ul class="nav navbar-nav">
 					<li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'question') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/question'); ?>">Posez votre question</a></li>
 					<li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'notifications') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/notifications'); ?>">Notifications</a></li>
-                    <li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'myquestions') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/myquestions'); ?>">Mes questions</a></li>
+                    <?php if ($userId) { ?>
+                        <li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'myquestions') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/myquestions'); ?>">Mes questions</a></li>
+                    <?php } ?>
                 </ul>
 				<?php if (!$userId) { ?>
 				<form class="navbar-form navbar-right" method="post" action="<?= site_url('user/connect'); ?>">

@@ -37,7 +37,7 @@
 			</div>
 			<?php } ?>
 			<?php if (!$notifs) { ?>
-			<div class="no-notifs">Aucune notification</div>
+			<div class="no-notifs">Aucune question</div>
 			<?php } ?>
 		</div>
     </div>

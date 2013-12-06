@@ -21,8 +21,10 @@
 			<div class="notification">
 				<div class="buttons">
 					<a href="#" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span> Liste des réponses</a>
-					<a href="#" class="btn btn-link respond" title="Répondre"><span class="glyphicon glyphicon-share-alt"></span> Répondre</a>
-				</div>
+                    <?php if ($userId) { ?>
+                        <a href="#" class="btn btn-link respond" title="Répondre"><span class="glyphicon glyphicon-share-alt"></span> Répondre</a>
+                    <?php } ?>
+                </div>
 				<div class="title"><?= $n["user"]->name; ?> a posé une question :</div>
 				<div class="question"><?= $n['content']; ?></div>
 				<div class="themes">

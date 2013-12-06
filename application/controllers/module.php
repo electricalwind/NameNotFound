@@ -9,7 +9,9 @@ class Module extends CI_Controller {
 
 	public function question ()
 	{
-		/* Set layout properties */
+        if (getUserId() == 0) redirect('module/notifications');
+
+        /* Set layout properties */
 		$this->layout->setTitle('Posez votre question');
 		$this->layout->setSelectedTab('question');
 		$this->layout->addJs('question');
@@ -20,7 +22,8 @@ class Module extends CI_Controller {
 
 	public function notifications ()
 	{
-		/* Set layout properties */
+
+        /* Set layout properties */
 		$this->layout->setTitle('Notifications');
 		$this->layout->setSelectedTab('notifications');
 		$this->layout->addJs('notifications');
