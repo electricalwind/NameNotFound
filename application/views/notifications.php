@@ -28,7 +28,7 @@
 				<div class="themes">
 					Thèmes :
 					<?php foreach ($n['themes'] as $t) { ?>
-					<span class="label label-primary"><?= $t->name; ?></span>
+					<span class="label label-primary"><?= $t["name"]; ?></span>
 					<?php } ?>
 				</div>
 				<div class="response">

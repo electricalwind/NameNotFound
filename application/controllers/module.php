@@ -35,6 +35,7 @@ class Module extends CI_Controller {
         {
             $array[$i]['content'] = $row->content;
             $array[$i]['themes'] = $this->questions->getQuestionThemes($row->id);
+            $i++;
         }
 
         $data = array(
