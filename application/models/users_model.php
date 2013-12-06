@@ -170,8 +170,7 @@ class Users_model extends CI_Model
      */
     public function addExpertiseScore($idUser,$idTheme,$value)
     {
-
-        $newScore = $this->getUserScoreOnTheme($idUser, $idTheme) + $value;
+        $newScore = ($this->getUserScoreOnTheme($idUser, $idTheme)->row()->score) + $value;
 
         $data = array(
             'score' => $newScore
