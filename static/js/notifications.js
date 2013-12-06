@@ -4,8 +4,9 @@ $(function(){
     $('.multiselect').multiselect();
 
 	//Toggle response form
-	$('.notification .respond').click(function(){
+	$('.notification .respond').click(function(e){
 		$(this).parents('.notification').find('.response').slideToggle();
+		e.preventDefault();
 	});
 
 	$('.notification .response').hide();

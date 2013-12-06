@@ -47,7 +47,7 @@
 					<button type="submit" class="btn btn-default">Connexion</button>
 				</form>
 				<?php } else { ?>
-				<p class="navbar-text navbar-right">Connecté en tant que <?= $user->name; ?> <a href="<?= site_url('user/disconnect'); ?>" class="navbar-link">&times;</a></p>
+				<p class="navbar-text navbar-right">Connecté en tant que <?= $user->name; ?> <a href="<?= site_url('user/disconnect'); ?>" class="navbar-link"><span class="glyphicon glyphicon-remove"></span></a></p>
 				<?php } ?>
 			</div>
 		</nav>
