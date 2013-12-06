@@ -25,7 +25,20 @@ class Module extends CI_Controller {
 		$this->layout->setSelectedTab('notifications');
 		$this->layout->addJs('notifications');
 
+        $result = $this->db->listQuestion();
+        $array = array();
+        $i = 0;
+        foreach ($result->result() as $row)
+        {
+            $array[$i]['content'] = $row->content;
+            $array[$i]['themes'] = $this->db->getQuestionThemes($row->id);
+        }
+
+        $data = array(
+            'notifs' => $array
+        );
+
 		/* Load page content */
-		$this->layout->loadPageContent('notifications');
+		$this->layout->loadPageContent('notifications', $data);
 	}
 }
