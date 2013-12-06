@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS `question`;
 CREATE TABLE IF NOT EXISTS `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) NOT NULL,
-  `content` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `status` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `idUser` (`idUser`)
