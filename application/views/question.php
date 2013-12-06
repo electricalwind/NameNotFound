@@ -14,7 +14,7 @@
 				<div class="question-who question-experts">
 					<div class="handle glyphicon glyphicon-align-justify"></div>
 					<div class="checkbox">
-						<label><input type="checkbox"> Les experts</label>
+						<label><input type="checkbox"> Des experts</label>
 					</div>
 				</div>
 				<div class="question-who question-everybody">

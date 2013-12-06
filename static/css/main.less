@@ -85,4 +85,58 @@ body {
 			text-align: right;
 		}
 	}
+
+	&.module-notifications .module-body {
+		.notification {
+			position: relative;
+			margin-top: 15px;
+			padding: 8px;
+			background: lightblue;
+			border: 1px solid darken(lightblue, 10%);
+
+			.buttons {
+				position: absolute;
+				right: 8px;
+				top: 0;
+
+				a {
+					margin-right: -8px;
+				}
+
+				.list {
+					color: grey;
+					&:hover {
+						color: darken(grey, 10%);
+					}
+				}
+
+				.respond {
+					color: green;
+					&:hover {
+						color: darken(green, 10%);
+					}
+				}
+			}
+
+			.title {
+				font-style: italic;
+				color: grey;
+			}
+
+			.question {
+				margin-top: 4px;
+				font-weight: bold;
+				font-size: 1.5em;
+			}
+
+			.themes {
+				margin-top: 8px;
+				color: grey;
+			}
+
+			.response {
+				margin-top: 8px;
+			}
+		}
+	}
 }
