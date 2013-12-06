@@ -44,6 +44,7 @@ class Questions_model extends CI_Model
               'status' => "UNSOLVED"
             );
 
+
             // Question insert
             $this->db->insert($this->tableQuestion, $dataQuestion);
 
@@ -53,6 +54,7 @@ class Questions_model extends CI_Model
 
             // For the themes
             $this->addQuestionThemes($questionId,  $themes);
+
 
             // If no errors, we can commit all transactions
             $this->db->query('COMMIT');

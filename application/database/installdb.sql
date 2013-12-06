@@ -1,12 +1,11 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
-
 -- phpMyAdmin SQL Dump
 -- version 4.0.9
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 06 Décembre 2013 à 05:29
+-- Généré le: Ven 06 Décembre 2013 à 06:08
 -- Version du serveur: 5.5.33
 -- Version de PHP: 5.5.3
 
@@ -37,13 +36,6 @@ CREATE TABLE IF NOT EXISTS `expertise` (
 --
 
 TRUNCATE TABLE `expertise`;
---
--- Contenu de la table `expertise`
---
-
-INSERT INTO `expertise` (`idUser`, `idTheme`, `score`) VALUES
-(2, 5, 117);
-
 -- --------------------------------------------------------
 
 --
@@ -58,17 +50,13 @@ CREATE TABLE IF NOT EXISTS `question` (
   `status` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Vider la table avant d'insérer `question`
 --
 
 TRUNCATE TABLE `question`;
---
--- Contenu de la table `question`
---
-
 -- --------------------------------------------------------
 
 --
@@ -122,18 +110,13 @@ CREATE TABLE IF NOT EXISTS `reponse` (
   PRIMARY KEY (`id`),
   KEY `idQuestion` (`idQuestion`),
   KEY `idUser` (`idUser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Vider la table avant d'insérer `reponse`
 --
 
 TRUNCATE TABLE `reponse`;
---
--- Contenu de la table `reponse`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -146,18 +129,13 @@ CREATE TABLE IF NOT EXISTS `theme` (
   `name` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Vider la table avant d'insérer `theme`
 --
 
 TRUNCATE TABLE `theme`;
---
--- Contenu de la table `theme`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -173,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Vider la table avant d'insérer `user`
@@ -185,9 +163,8 @@ TRUNCATE TABLE `user`;
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`) VALUES
-(1, 'admin', 'admin', 'admin', 'admin'),
-(2, 'alice', 'alice', 'alice', 'alice'),
-(3, 'bob', 'bob', 'bob', 'bob');
+(1, 'Alice', 'alice', '', ''),
+(2, 'bob', 'bob', '', '');
 
 -- --------------------------------------------------------
 
@@ -220,13 +197,6 @@ ADD CONSTRAINT `expertise_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`i
 ADD CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `question_theme`
---
-ALTER TABLE `question_theme`
-ADD CONSTRAINT `question_theme_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE,
-ADD CONSTRAINT `question_theme_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`) ON DELETE CASCADE;
-
---
 -- Contraintes pour la table `relatives`
 --
 ALTER TABLE `relatives`
@@ -246,6 +216,7 @@ ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question`
 ALTER TABLE `user_expert`
 ADD CONSTRAINT `user_expert_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `user_expert_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
 
 -- End of file: enable foreign keys
 SET FOREIGN_KEY_CHECKS = 1;
