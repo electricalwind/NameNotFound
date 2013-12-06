@@ -186,7 +186,7 @@ TRUNCATE TABLE `user`;
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin'),
-(2, 'alice', 'alice', 'alice', 'alice');
+(2, 'alice', 'alice', 'alice', 'alice'),
 (3, 'bob', 'bob', 'bob', 'bob');
 
 -- --------------------------------------------------------
