@@ -56,4 +56,47 @@ class Module extends CI_Controller {
 		/* Load page content */
 		$this->layout->loadPageContent('notifications', $data);
 	}
+
+    public function myquestions ()
+    {
+        if (getUserId() == 0) redirect('module/notifications');
+
+        /* Set layout properties */
+        $this->layout->setTitle('Mes questions');
+        $this->layout->setSelectedTab('myquestions');
+        $this->layout->addJs('myquestions');
+
+        /* Load Models */
+        $this->load->model('Questions_Model', 'questions');
+        $this->load->model('Users_Model', 'users');
+
+        $result = $this->questions->listQuestion();
+        $array = array();
+        $i = 0;
+        foreach ($result->result() as $row)
+        {
+            if ($row->idUser == getUserId()) {
+                $array[$i]['id'] = $row->id;
+                $array[$i]['content'] = $row->content;
+                $array[$i]['themes'] = $this->questions->getQuestionThemes($row->id);
+                $array[$i]['user'] = $this->users->getUserInfo($row->idUser);
+                $i++;
+            }
+        }
+
+        $themes = array();
+        $result = $this->questions->getThemes();
+        foreach ($result->result() as $row)
+        {
+            $themes[] = $row;
+        }
+
+        $data = array(
+            'notifs' => $array,
+            'themes' => $themes
+        );
+
+        /* Load page content */
+        $this->layout->loadPageContent('myquestions', $data);
+    }
 }
