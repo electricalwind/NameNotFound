@@ -38,8 +38,16 @@ class Module extends CI_Controller {
             $i++;
         }
 
+        $themes = array();
+        $result = $this->questions->getThemes();
+        foreach ($result->result() as $row)
+        {
+            $themes[] = $row->name;
+        }
+
         $data = array(
-            'notifs' => $array
+            'notifs' => $array,
+            'themes' => $themes
         );
 
 		/* Load page content */

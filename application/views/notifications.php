@@ -8,8 +8,9 @@
                     <option value="interests">Mes intérêts</option>
                     <option value="experts">Mes expertises</option>
                     <optgroup label="Thèmes">
-                        <option value="theme-1">Aquarium</option>
-                        <option value="theme-2">Fruits et légumes</option>
+                        <?php foreach ($themes as $t) { ?>
+                        <option value="<?= $t; ?>"><?= $t; ?></option>
+                        <?php } ?>
                     </optgroup>
                 </select>
 	            <label class="checkbox-inline"><input type="checkbox"> Résolues</label>

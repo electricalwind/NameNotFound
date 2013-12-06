@@ -25,7 +25,7 @@ class Question extends CI_Controller {
         $names = $this->curl->simple_get('http://spotlight.dbpedia.org/rest/spot/?text=' . $url);
         $namesJSON = json_decode($names, true);
         $arrayIdThemes = array();
-        
+
         if (isset($namesJSON["annotation"]["surfaceForm"])) {
             $tab = $namesJSON["annotation"]["surfaceForm"];
 
