@@ -38,7 +38,7 @@
 				<div class="response">
 					<form method="post" action="<?= site_url('question/respond/'.$n['id']); ?>">
 						<div class="input-group">
-							<input type="text" name="response" class="form-control" placeholder="Réponse...">
+							<input type="text" name="response" class="form-control" placeholder="Réponse..." required>
 							<span class="input-group-btn">
 								<button class="btn btn-success" type="submit">Envoyer</button>
 							</span>
