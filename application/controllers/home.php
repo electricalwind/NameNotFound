@@ -11,6 +11,7 @@ class Home extends CI_Controller {
 		/* Set layout properties */
 		$this->layout->setTitle('Bienvenue');
 		$this->layout->addLess('home');
+		$this->layout->addJs('question');
 
 		/* Load page content */
 		$this->layout->loadPageContent('home');
