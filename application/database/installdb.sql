@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 06 Décembre 2013 à 04:44
+-- Généré le: Ven 06 Décembre 2013 à 04:56
 -- Version du serveur: 5.5.33
 -- Version de PHP: 5.5.3
 
@@ -90,6 +90,25 @@ CREATE TABLE IF NOT EXISTS `question_theme` (
 --
 
 TRUNCATE TABLE `question_theme`;
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `relatives`
+--
+
+DROP TABLE IF EXISTS `relatives`;
+CREATE TABLE IF NOT EXISTS `relatives` (
+  `idUser1` int(11) NOT NULL,
+  `idUser2` int(11) NOT NULL,
+  UNIQUE KEY `idUser1` (`idUser1`,`idUser2`),
+  KEY `idUser2` (`idUser2`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Vider la table avant d'insérer `relatives`
+--
+
+TRUNCATE TABLE `relatives`;
 -- --------------------------------------------------------
 
 --
@@ -222,6 +241,13 @@ ADD CONSTRAINT `question_theme_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme
 ADD CONSTRAINT `question_theme_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`) ON DELETE CASCADE;
 
 --
+-- Contraintes pour la table `relatives`
+--
+ALTER TABLE `relatives`
+ADD CONSTRAINT `relatives_ibfk_2` FOREIGN KEY (`idUser2`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `relatives_ibfk_1` FOREIGN KEY (`idUser1`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Contraintes pour la table `reponse`
 --
 ALTER TABLE `reponse`
@@ -234,7 +260,6 @@ ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question`
 ALTER TABLE `user_expert`
 ADD CONSTRAINT `user_expert_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
 ADD CONSTRAINT `user_expert_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
 
 -- End of file: enable foreign keys
 SET FOREIGN_KEY_CHECKS = 1;
