@@ -2,36 +2,82 @@
 -- (RE)INSTALL THE ENTIRE DATABASE --
 -- ------------------------------- --
 
--- Start of file: disable foreign keys
-SET FOREIGN_KEY_CHECKS = 0;
+--
+-- Structure de la table `question`
+--
 
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE IF NOT EXISTS `question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idUser` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `status` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `idUser` (`idUser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
--- Drop all tables
-DROP TABLE IF EXISTS actions;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `question_theme`
+--
 
--- Sample
-CREATE TABLE `actions` (
-  `aid` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Primary Key: Unique actions ID.',
-  `type` varchar(32) NOT NULL DEFAULT '' COMMENT 'The object that that action acts on (node, user, comment, system or custom types.)',
-  `callback` varchar(255) NOT NULL DEFAULT '' COMMENT 'The callback function that executes when the action runs.',
-  `parameters` longblob NOT NULL COMMENT 'Parameters to be passed to the callback function.',
-  `label` varchar(255) NOT NULL DEFAULT '0' COMMENT 'Label of the action.',
-  PRIMARY KEY (`aid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Stores action information.';
+DROP TABLE IF EXISTS `question_theme`;
+CREATE TABLE IF NOT EXISTS `question_theme` (
+  `idQuestion` int(11) NOT NULL,
+  `idTheme` int(11) NOT NULL,
+  PRIMARY KEY (`idQuestion`,`idTheme`),
+  KEY `idTheme` (`idTheme`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('comment_publish_action', 'comment', 'comment_publish_action', '', 'Publish comment');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('comment_save_action', 'comment', 'comment_save_action', '', 'Save comment');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('comment_unpublish_action', 'comment', 'comment_unpublish_action', '', 'Unpublish comment');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_make_sticky_action', 'node', 'node_make_sticky_action', '', 'Make content sticky');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_make_unsticky_action', 'node', 'node_make_unsticky_action', '', 'Make content unsticky');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_promote_action', 'node', 'node_promote_action', '', 'Promote content to front page');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_publish_action', 'node', 'node_publish_action', '', 'Publish content');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_save_action', 'node', 'node_save_action', '', 'Save content');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_unpromote_action', 'node', 'node_unpromote_action', '', 'Remove content from front page');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('node_unpublish_action', 'node', 'node_unpublish_action', '', 'Unpublish content');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('system_block_ip_action', 'user', 'system_block_ip_action', '', 'Ban IP address of current user');
-INSERT INTO actions (`aid`, `type`, `callback`, `parameters`, `label`) VALUES ('user_block_user_action', 'user', 'user_block_user_action', '', 'Block current user');
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `theme`
+--
+
+DROP TABLE IF EXISTS `theme`;
+CREATE TABLE IF NOT EXISTS `theme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  `email` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `question`
+--
+ALTER TABLE `question`
+ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `question_theme`
+--
+ALTER TABLE `question_theme`
+ADD CONSTRAINT `question_theme_ibfk_2` FOREIGN KEY (`idTheme`) REFERENCES `theme` (`id`) ON DELETE CASCADE,
+ADD CONSTRAINT `question_theme_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`) ON DELETE CASCADE;
 
 
 -- End of file: enable foreign keys
