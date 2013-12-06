@@ -93,6 +93,7 @@ body {
 			padding: 8px;
 			background: lightblue;
 			border: 1px solid darken(lightblue, 10%);
+			border-radius: 4px;
 
 			.buttons {
 				position: absolute;
@@ -101,6 +102,10 @@ body {
 
 				a {
 					margin-right: -8px;
+					font-size: 0.9em;
+					&:hover {
+						text-decoration: none;
+					}
 				}
 
 				.list {
@@ -120,7 +125,7 @@ body {
 
 			.title {
 				font-style: italic;
-				color: grey;
+				color: dimgrey;
 			}
 
 			.question {
@@ -137,6 +142,12 @@ body {
 			.response {
 				margin-top: 8px;
 			}
+		}
+
+		.no-notifs {
+			margin-top: 20px;
+			font-size: 1.8em;
+			text-align: center;
 		}
 	}
 }
