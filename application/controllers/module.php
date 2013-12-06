@@ -45,7 +45,7 @@ class Module extends CI_Controller {
         $result = $this->questions->getThemes();
         foreach ($result->result() as $row)
         {
-            $themes[] = $row->name;
+            $themes[] = $row;
         }
 
         $data = array(

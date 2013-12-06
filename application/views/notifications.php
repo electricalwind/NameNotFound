@@ -13,8 +13,7 @@
                         <?php } ?>
                     </optgroup>
                 </select>
-	            <label class="checkbox-inline"><input type="checkbox"> Résolues</label>
-	            <label class="checkbox-inline"><input type="checkbox"> Mes proches</label>
+	            <label class="checkbox-inline"><input type="checkbox"> Mes proches uniquement</label>
             </div>
         </form>
 		<div class="notifications">
