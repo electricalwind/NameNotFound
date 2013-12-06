@@ -5,6 +5,7 @@
 	<script src="<?= lib_url('jquery/jquery-2.0.3.min.js'); ?>"></script>
 	<script src="<?= lib_url('jqueryui/js/jquery-ui-1.10.3.custom.min.js'); ?>"></script>
 	<script src="<?= lib_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?= lib_url('multiselect/bootstrap-multiselect.js'); ?>"></script>
 <?php foreach ($layoutJs as $js) { ?>
 	<script src="<?= js_url($js); ?>"></script>
 <?php } ?>
