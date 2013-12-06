@@ -20,7 +20,7 @@
 			<?php foreach ($notifs as $n) { ?>
 			<div class="notification">
 				<div class="buttons">
-					<a href="#" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span> Liste des réponses</a>
+					<a href="<?= site_url('module/responses/'.$n['id']); ?>" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span> </a>
 				</div>
 				<div class="title"><?= $n["user"]->name; ?> a posé une question :</div>
 				<div class="question"><?= $n['content']; ?></div>
