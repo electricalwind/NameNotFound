@@ -69,7 +69,6 @@ class Question extends CI_Controller {
 
         $this->questions->addQuestion(1, $question, $arrayIdThemes);
 
-        /* Load page content */
-        $this->layout->loadPageContent('notification');
+        redirect('module/notifications');
     }
 }
