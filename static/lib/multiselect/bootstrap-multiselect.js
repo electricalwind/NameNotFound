@@ -108,7 +108,7 @@
             // possible options: 'text', 'value', 'both'
             filterBehavior: 'text',
             preventInputChangeEvent: false,
-            nonSelectedText: 'Aucun',
+            nonSelectedText: 'Tous',
             nSelectedText: 'sélectionnés'
         },
         
