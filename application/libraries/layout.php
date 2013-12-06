@@ -35,6 +35,13 @@ class Layout
         $data['layoutSelectedTab'] = $this->selectedTab;
         $data['layoutLess'] = $this->less;
         $data['layoutJs'] = $this->js;
+        $data['userId'] = getUserId();
+
+	    if ($data['userId']) {
+		    $this->CI->load->model('users_model');
+		    $user = $this->CI->users_model->getUserInfo($data['userId']);
+		    $data['user'] = $user;
+	    }
 
         /* Load the template */
         $this->CI->load->view('layout/top', $data);
