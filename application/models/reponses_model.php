@@ -34,7 +34,7 @@ class Reponses_model extends CI_Model
             'content' => $content
         );
 
-        $this->db->insert($this->tablesReponses, $data);
+        $this->db->insert($this->tableReponses, $data);
         // Retrieve reponse id
         $reponseId = $this->db->insert_id();
         if ($this->db->affected_rows() == 0) throw new Exception('No Reponse Insert');
