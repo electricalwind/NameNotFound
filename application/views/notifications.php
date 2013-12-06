@@ -24,7 +24,7 @@
 					<a href="#" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span></a>
 					<a href="#" class="btn btn-link respond" title="Répondre"><span class="glyphicon glyphicon-share-alt"></span></a>
 				</div>
-				<div class="title">Un utilisateur a posé une question :</div>
+				<div class="title"><?= $n["user"]->name; ?> a posé une question :</div>
 				<div class="question"><?= $n['content']; ?></div>
 				<div class="themes">
 					Thèmes :

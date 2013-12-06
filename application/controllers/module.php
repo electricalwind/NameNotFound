@@ -27,6 +27,7 @@ class Module extends CI_Controller {
 
         /* Load Models */
         $this->load->model('Questions_Model', 'questions');
+        $this->load->model('Users_Model', 'users');
 
         $result = $this->questions->listQuestion();
         $array = array();
@@ -35,6 +36,7 @@ class Module extends CI_Controller {
         {
             $array[$i]['content'] = $row->content;
             $array[$i]['themes'] = $this->questions->getQuestionThemes($row->id);
+            $array[$i]['user'] = $this->users->getUserInfo($row->idUser);
             $i++;
         }
 
