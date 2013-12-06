@@ -39,9 +39,16 @@
 					<li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'notifications') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/notifications'); ?>">Notifications</a></li>
                     <li<?= (isset($layoutSelectedTab) && $layoutSelectedTab == 'myquestions') ? ' class="active"' : ''; ?>><a href="<?= site_url('module/myquestions'); ?>">Mes questions</a></li>
                 </ul>
-				<!--<ul class="nav navbar-nav navbar-right">
-					<li><button class="btn btn-link navbar-btn"><span class="glyphicon glyphicon-cog"></span></button></li>
-				</ul>-->
+				<?php if (!$userId) { ?>
+				<form class="navbar-form navbar-right" method="post" action="<?= site_url('user/connect'); ?>">
+					<div class="form-group">
+						<input type="text" name="username" class="form-control" placeholder="Nom d'utilisateur">
+					</div>
+					<button type="submit" class="btn btn-default">Connexion</button>
+				</form>
+				<?php } else { ?>
+				<p class="navbar-text navbar-right">Connecté en tant que <?= $user->name; ?> <a href="<?= site_url('user/disconnect'); ?>" class="navbar-link">&times;</a></p>
+				<?php } ?>
 			</div>
 		</nav>
 		<div id="page-container">
