@@ -1,5 +1,5 @@
 <div class="module module-question col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 well">
-    <h1>Notifications</h1>
+    <h1>Vos notifications</h1>
     <div class="module-body">
         <form class="form-inline" role="form">
             <div class="form-group">
