@@ -1,5 +1,5 @@
 <div class="module module-myquestions col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 well">
-    <h1>Notifications</h1>
+    <h1>Mes questions</h1>
     <div class="module-body">
         <form class="form-inline" role="form">
 	        <label class="">Afficher : </label>
@@ -21,7 +21,6 @@
 			<div class="notification">
 				<div class="buttons">
 					<a href="#" class="btn btn-link list" title="Liste des réponses"><span class="glyphicon glyphicon-list"></span> Liste des réponses</a>
-					<a href="#" class="btn btn-link respond" title="Répondre"><span class="glyphicon glyphicon-share-alt"></span> Répondre</a>
 				</div>
 				<div class="title"><?= $n["user"]->name; ?> a posé une question :</div>
 				<div class="question"><?= $n['content']; ?></div>
@@ -34,16 +33,7 @@
 						Aucun
 					<?php } ?>
 				</div>
-				<div class="response">
-					<form method="post" action="<?= site_url('question/respond/'.$n['id']); ?>">
-						<div class="input-group">
-							<input type="text" name="response" class="form-control" placeholder="Réponse..." required>
-							<span class="input-group-btn">
-								<button class="btn btn-success" type="submit">Envoyer</button>
-							</span>
-						</div>
-					</form>
-				</div>
+
 			</div>
 			<?php } ?>
 			<?php if (!$notifs) { ?>
